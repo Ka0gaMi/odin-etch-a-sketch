@@ -1,4 +1,5 @@
 const colorButtons = document.querySelectorAll(".btn");
+const gridSizeButtons = document.querySelectorAll(".gridsizebtn");
 let color = "black"
 
 function newGrid(numCells = 16) {
@@ -77,6 +78,8 @@ function gridColor() {
 
 function changeColor(e) {
     console.log("triggers changeColor")
+    colorButtons.forEach(button => button.classList.remove("selected"))
+    e.target.classList.add("selected")
     switch (e.target.innerText.toLowerCase()) {
         case "rainbow":
             color = "rainbow";
@@ -99,10 +102,25 @@ function saveUserColor(e) {
 
 colorButtons.forEach(colorButtons => colorButtons.addEventListener('click', changeColor));
 
-
-
-
 function onStart() {
     let gridPixels = document.querySelectorAll(".gridcell");
     gridPixels.forEach(gridPixels => gridPixels.addEventListener("mouseover", gridColor));
 }
+
+function gridSizeChange(num) {
+    let allCells = document.querySelectorAll(".gridcell").forEach(cell => {
+        cell.style.backgroundColor = "white";
+    })
+    const grid = document.getElementById("grid");
+    while (grid.firstChild) grid.removeChild(grid.firstChild);
+    newGrid(num);    
+}
+
+
+gridSizeButtons.forEach(button => {
+    button.addEventListener("click", function() {
+        gridSizeButtons.forEach(b => b.classList.remove("selected"))
+        this.classList.add("selected");
+        gridSizeChange(this.dataset.size);
+    });
+});

@@ -12,11 +12,16 @@
         <h1 id="h1-title">Etch A Sketch</h1>
     </div>
     <div class="container" id="menu">
-        <button class="btn" id="blackbtn">Black</button>
+        <button class="btn selected" id="blackbtn">Black</button>
         <button class="btn" id="rainbowbtn">Rainbow</button>
         <button class="btn" id="opaquebtn">Opaque</button>
         <button class="btn" id="eraserbtn">Eraser</button>
-        <button class="btn" id="reset" onclick="resetGrid()">Reset</button>
+        <button class="btn-reset" id="reset" onclick="resetGrid()">Reset</button>
+    </div>
+    <div class="container" id="gridsizemenu">
+        <button class="gridsizebtn selected" id="grid16" data-size="16">16x16</button>
+        <button class="gridsizebtn" id="grid32" data-size="32">32x32</button>
+        <button class="gridsizebtn" id="grid64" data-size="64">64x64</button>
     </div>
 
     <div class="gridcontainer" id="grid">

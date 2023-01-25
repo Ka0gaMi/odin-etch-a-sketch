@@ -45,11 +45,19 @@ body {
     display: flex;
     flex-wrap: wrap;
     height: 5rem;
-    margin-bottom: 3rem;
     justify-content: center;
 }
 
-.btn {
+#gridsizemenu {
+    display: flex;
+    flex-wrap: wrap;
+    height: 5rem;
+    justify-content: space-evenly;
+    margin-bottom: 2.5rem;
+}
+
+.btn,
+.btn-reset {
     background-color: white;
     border: 3px solid black;
     border-radius: 5px;
@@ -59,8 +67,31 @@ body {
     font-weight: bolder;
 }
 
+.btn:hover,
+.btn-reset:hover,
+.gridsizebtn:hover {
+    cursor: pointer;
+    scale: 1.2;
+}
+
+.btn:active,
+.btn-reset:active,
+.gridsizebtn:active {
+    border-color: red;
+}
+
 #rainbowbtn {
     animation: rainbowButtonBackground 10s ease infinite;
+}
+
+.gridsizebtn {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 5px;
+    margin: 1rem;
+    width: 100px;
+    text-transform: uppercase;
+    font-weight: bolder;
 }
   
 @keyframes rainbowButtonBackground {
@@ -103,4 +134,8 @@ body {
 
 .gridcontainer {
     background-color: white;
+}
+
+.selected {
+    border-color: red;
 }
