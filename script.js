@@ -32,8 +32,10 @@ function resetGrid() {
         cell.style.backgroundColor = "white";
     })
     const grid = document.getElementById("grid");
+    const selectedButton = document.querySelector(".gridsizebtn.selected");
+    const gridSize = selectedButton.dataset.size;
     while (grid.firstChild) grid.removeChild(grid.firstChild);
-    newGrid();
+    newGrid(gridSize);
 }
 
 window.addEventListener("DOMContentLoaded", event => {
@@ -115,7 +117,6 @@ function gridSizeChange(num) {
     while (grid.firstChild) grid.removeChild(grid.firstChild);
     newGrid(num);    
 }
-
 
 gridSizeButtons.forEach(button => {
     button.addEventListener("click", function() {
